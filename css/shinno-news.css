@@ -1,0 +1,33 @@
+/* ---------------------------news--------------------------------------        */
+.news-content {
+    margin-top: 60px;
+}
+
+.news p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.news-text {
+    padding: 0 15px;
+}
+
+.news-text p {
+    line-height: 1.5;
+}
+
+.news-img img {
+    object-fit: cover;
+}
+
+
+.page-link {
+    background-color: #212121;
+    border:none;
+    color: #D9b54A;
+}
+
+.page-link:hover {
+    background-color: #D9b54A;
+    color: #212121;
+}

@@ -1,0 +1,225 @@
+body {
+    background-color: #000;
+    font-family:serif;
+}
+
+p {
+    color: #fff;
+}
+/* ------------------------------header----------------------------------------------- */
+.header {
+    transition: .5s;
+}
+.header.hide {
+    transform: translateY(-200px);
+}
+
+.header-logo a:hover {
+    opacity: .7;
+}
+
+.nav a {
+    color: #fff;
+    font-size: 1rem;
+    /* font-weight: 600; */
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-item a {
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+}
+
+.nav-item a::before, 
+.nav-item a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #D9b54A;
+    transition: .3s;
+}
+
+.nav-item a::before {
+    top: 0;
+    left: 0;
+}
+
+.nav-item a::after {
+    bottom: 0;
+    right: 0;
+}
+
+.nav-item a:hover::before,
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+
+/* -----------------------------------footer----------------------------------------- */
+.footer-logo-img a:hover {
+    opacity: .7;
+}
+
+.sns-img a :hover {
+    opacity: .7;
+}
+
+/* ------------------------------------------toppage-------------------------------------- */
+.totop-arrow {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 33%;
+    background: #212121;
+    cursor: pointer;
+    opacity: .6;
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 99;
+    display: none;
+}
+
+.totop-arrow::before, .totop-arrow::after {
+    content: "";
+    width: 25px;
+    height: 6px;
+    border-radius: 5px;
+    background: #D9b54A;
+    position: absolute;
+}
+
+.totop-arrow::before {
+    transform: rotate(-45deg) translate(0, -50%);
+    left: 6.7px;
+}
+
+.totop-arrow::after {
+    transform: rotate(45deg) translate(0, -50%);
+    right: 6.7px;
+}
+
+.totop-arrow:focus {
+    outline: none;
+}
+
+.totop-arrow:hover {
+    background: #fff;
+}
+/* ------------------------------------------------------header-m------------------- */
+.header-m {
+    display: none;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 48px;
+    width: 48px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #212121;
+    opacity: .7;
+    border-radius: 5px;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #fff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 80;
+    background-color: rgba(0, 0, 0, .8);
+    transition: all 0.5s;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;
+}
+
+.menu-content ul {
+    padding: 70px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+    
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+    
+}
+
+/* -------------------------------------mobile------------------------------------- */
+@media screen and (max-width:576px) {
+    .header {
+        display: none;
+    }
+
+    .header-m {
+        display: block;
+    }
+
+}

@@ -7,275 +7,12 @@
     <title>銀座しんのう</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/shinno-index.css">
+    <link rel="stylesheet" href="./css/shinno-about.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="shortcut icon" href="./favicon .ico">
 
-    <style>
-        html {
-            font-size: 10px;
-        }
-
-        body {
-            background-color: #000;
-            font-family:serif;
-        }
-
-        p {
-            color: #fff;
-        }
-/* ------------------------------header----------------------------------------------- */
-        .header {
-            transition: .5s;
-        }
-        .header.hide {
-            transform: translateY(-200px);
-        }
-
-        .header-logo a:hover {
-            opacity: .7;
-        }
-
-        .nav a {
-            color: #fff;
-            font-size: 1.6rem;
-            /* font-weight: 600; */
-        }
-        
-        .nav-item {
-            margin: 0 10px;
-        }
-
-        .nav-item a {
-            position: relative;
-            display: inline-block;
-            transition: .3s;
-        }
-
-        .nav-item a::before, 
-        .nav-item a::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 1px;
-            background-color: #D9b54A;
-            transition: .3s;
-        }
-
-        .nav-item a::before {
-            top: 0;
-            left: 0;
-        }
-
-        .nav-item a::after {
-            bottom: 0;
-            right: 0;
-        }
-
-        .nav-item a:hover::before,
-        .nav-item a:hover::after {
-            width: 100%;
-        }
-
-/* ---------------------------------------------about--------------------------------- */
-        .about-content {
-            margin-top: 60px;
-        }
-
-        .about-img img {
-            object-fit: cover;
-        }
-
-        .about-text {
-            background-color: #212121;
-            padding: 10px 20px;
-        }
-
-        .about-text p{
-            text-align: center;
-            font-size: 1.4rem;
-            line-height: 1.5;
-        }
-
-        .chef-img img {
-            clip-path: polygon(0% 0%, 75% 0%, 97% 68%, 75% 100%, 0% 100%);
-        }
-
-        .chef-text {
-            padding: 10px 20px;
-        }
-
-        .chef-text p{
-            text-align: left;
-            font-size: 1.4rem;
-            line-height: 1.7;
-        }
-        
-
-/* ---------------------------------footer------------------------------------------- */
-        .footer-logo-img a:hover {
-            opacity: .7;
-        }
-
-        .sns-img a :hover {
-            opacity: .7;
-        }
-
-/* ---------------------toppage----------------------------------------------------- */
-        .totop-arrow {
-            width: 4.8rem;
-            height: 4.8rem;
-            padding: 0;
-            margin: 0;
-            border: 0;
-            border-radius: 33%;
-            background: #212121;
-            cursor: pointer;
-            opacity: .6;
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 99;
-            display: none;
-        }
-
-        .totop-arrow::before, .totop-arrow::after {
-            content: "";
-            width: 25px;
-            height: 6px;
-            border-radius: 5px;
-            background: #D9b54A;
-            position: absolute;
-        }
-
-        .totop-arrow::before {
-            transform: rotate(-45deg) translate(0, -50%);
-            left: 0.67rem;
-        }
-
-        .totop-arrow::after {
-            transform: rotate(45deg) translate(0, -50%);
-            right: 0.67rem;
-        }
-
-        .totop-arrow:focus {
-            outline: none;
-        }
-
-        .totop-arrow:hover {
-            background: #fff;
-        }
-        
-    /* ---------------------------------------------header-m---------------------- */
-        .header-m {
-            display: none;
-        }
-
-        .menu-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            height: 48px;
-            width: 48px;
-            justify-content: center;
-            align-items: center;
-            z-index: 90;
-            background-color: #212121;
-            opacity: .7;
-            border-radius: 5px;
-        }
-        .menu-btn span,
-        .menu-btn span:before,
-        .menu-btn span:after {
-            content: '';
-            display: block;
-            height: 3px;
-            width: 25px;
-            border-radius: 3px;
-            background-color: #fff;
-            position: absolute;
-        }
-        .menu-btn span:before {
-            bottom: 8px;
-        }
-        .menu-btn span:after {
-            top: 8px;
-        }
-
-        #menu-btn-check:checked ~ .menu-btn span {
-            background-color: rgba(255, 255, 255, 0);
-        }
-        #menu-btn-check:checked ~ .menu-btn span::before {
-            bottom: 0;
-            transform: rotate(45deg);
-        }
-        #menu-btn-check:checked ~ .menu-btn span::after {
-            top: 0;
-            transform: rotate(-45deg);
-        }
-
-        #menu-btn-check {
-            display: none;
-        }
-
-        .menu-content {
-            width: 100%;
-            height: 65%;
-            position: fixed;
-            top: 0;
-            left: 100%;
-            z-index: 80;
-            background-color: #212121;
-            transition: all 0.5s;
-        }
-
-        #menu-btn-check:checked ~ .menu-content {
-            left: 0;
-        }
-
-        .menu-content ul {
-            padding: 70px 10px 0;
-        }
-        .menu-content ul li {
-            border-bottom: solid 1px #ffffff;
-            list-style: none;
-        }
-        .menu-content ul li a {
-            display: block;
-            width: 100%;
-            font-size: 15px;
-            box-sizing: border-box;
-            color:#ffffff;
-            text-decoration: none;
-            padding: 9px 15px 10px 0;
-            position: relative;
-        }
-        .menu-content ul li a::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-top: solid 2px #ffffff;
-            border-right: solid 2px #ffffff;
-            transform: rotate(45deg);
-            position: absolute;
-            right: 11px;
-            top: 16px;
-        }
-/* -----------------------------------mobile--------------------------------------------  */
-        @media screen and (max-width:576px) {
-            .header {
-                display: none;
-            }
-
-            .header-m {
-                display: block;
-            }
-
-        }
-        
-        
-    </style>
 </head>
 
 <body>
@@ -373,10 +110,10 @@
 
     <section class="about" style="margin-top: 100px;">
         <div class="container">
-            <h1 class="about_title" style="text-align: center; color:#D9b54A; margin: 0;">ABOUT</h1>
+            <h2 class="about_title my-5" style="text-align: center; color:#D9b54A; margin: 0;">ABOUT</h2>
             <div class="row justify-content-center about-content" >
                 <div class="about-text col-md-6 col-12">
-                    <h3>銀座しんのうについて</h3>
+                    <h4 class="text-center my-3" style="color: #fff;">銀座しんのうについて</h4>
                     <p>薬膳とは<br>
                         伝統的な中国の医学理論に基づいて<br>
                         生薬と食材を組み合わせた料理のことです。<br>
@@ -422,7 +159,7 @@
                 </div>
                 <div class="chef-text col-md-6 col-12">
                     <h2 style="color: #D9b54A; text-align: center;">オーナーシェフ</h2>
-                    <h3 style="color:#fff; text-align:center;">三上康介 氏</h3>
+                    <h4 style="color:#fff; text-align:center;">三上康介 氏</h4>
                     <p>
                     1978年生まれ、岩手県生まれ。専門学校を卒業後、地元の老人保健施設に勤務。<br>
                     約10年にわたって経験を積む中、おいしくて体に嬉しい「薬膳」に出会う。<br>
@@ -461,7 +198,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p class="mt-3" style="color: #fff; font-size: 1.4rem; text-align: center;">
+                <p class="mt-3" style="color: #fff; font-size: 1rem; text-align: center;">
                     © 2021 ginza.shinno</p>
             </div>
         </div>
